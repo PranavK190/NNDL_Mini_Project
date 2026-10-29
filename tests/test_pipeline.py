@@ -49,7 +49,7 @@ def test_24h_iterative_forecast_shape_and_finite_metrics():
     scaler = joblib.load(scaler_path)
     X_test = np.load(X_test_path)
 
-    initial_window = X_test[-24].copy()
+    initial_window = X_test[-25].copy()
     preds = []
     current_win = initial_window.copy()
 
