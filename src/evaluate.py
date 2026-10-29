@@ -48,8 +48,8 @@ def evaluate_pipeline():
     print(f"Naive Baseline -> MAE: {naive_mae:.2f} kW, RMSE: {naive_rmse:.2f} kW")
 
     # 2. Perform 24-Hour Ahead Iterative Multi-step Forecasting
-    # Use the last window from X_test to forecast the future 24 hours iteratively
-    initial_window = X_test[-1].copy() # shape (168,)
+    # Use the window prior to the last 24 test points (X_test[-24]) to forecast the last 24 hours iteratively
+    initial_window = X_test[-24].copy() # shape (168,)
     actual_next_24_scaled = y_test[-24:] # actual values for last 24 test points
     actual_next_24_orig = y_test_orig[-24:]
 
